@@ -5,20 +5,17 @@
   if (!context || !toggle) return;
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const color = '83, 103, 115';
-  const pointer = { x: 0, y: 0, active: false, movedAt: 0 };
-  const satellites = Array.from({ length: 7 }, (_, index) => ({
-    angle: index * Math.PI * 2 / 7 + Math.random() * 0.6,
-    radius: 45 + Math.random() * 75,
-    phase: Math.random() * Math.PI * 2,
-  }));
+  // Match the reference's free-moving particles and short-range mouse attraction.
+  const pointCount = 99;
+  const neighborRangeSquared = 6000;
+  const mouseRangeSquared = 20000;
+  const pointer = { x: 0, y: 0, active: false };
+  const referenceFrame = 1000 / 60;
   let width = 0;
   let height = 0;
   let points = [];
   let frame = null;
-  let previousTime = 0;
-  let elapsed = 0;
-  let hoverOpacity = 0;
+  let previousTime = null;
   let paused = false;
 
   // Remember only an explicit pause; the OS motion preference always takes priority.
@@ -37,82 +34,73 @@
       point.x *= width / oldWidth;
       point.y *= height / oldHeight;
     }
-    const count = Math.max(20, Math.min(width < 760 ? 30 : 85, Math.round(width * height / 18000)));
-    points = points.slice(0, count);
-    while (points.length < count) {
-      const angle = Math.random() * Math.PI * 2;
-      const speed = 6 + Math.random() * 9;
+    while (points.length < pointCount) {
       points.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: Math.cos(angle) * speed,
-        vy: Math.sin(angle) * speed,
+        vx: Math.random() * 2 - 1,
+        vy: Math.random() * 2 - 1,
       });
     }
     pointer.active = false;
-    hoverOpacity = 0;
   }
 
-  function drawNetwork(nodes, distance, opacity) {
-    context.lineWidth = 0.65;
-    for (let i = 0; i < nodes.length; i++) {
-      const point = nodes[i];
-      context.fillStyle = `rgba(${color}, ${opacity * 1.8})`;
-      context.beginPath();
-      context.arc(point.x, point.y, 0.8, 0, Math.PI * 2);
-      context.fill();
-      for (let j = i + 1; j < nodes.length; j++) {
-        const other = nodes[j];
-        const gap = Math.hypot(point.x - other.x, point.y - other.y);
-        if (gap >= distance) continue;
-        context.strokeStyle = `rgba(${color}, ${opacity * (1 - gap / distance)})`;
-        context.beginPath();
-        context.moveTo(point.x, point.y);
-        context.lineTo(other.x, other.y);
-        context.stroke();
-      }
-    }
+  function distanceSquared(a, b) {
+    const dx = a.x - b.x;
+    const dy = a.y - b.y;
+    return dx * dx + dy * dy;
+  }
+
+  function drawLink(a, b, gapSquared, rangeSquared) {
+    if (gapSquared >= rangeSquared) return;
+    const strength = 1 - gapSquared / rangeSquared;
+    context.lineWidth = strength / 2;
+    context.strokeStyle = `rgba(0, 0, 0, ${Math.min(1, strength + 0.2)})`;
+    context.beginPath();
+    context.moveTo(a.x, a.y);
+    context.lineTo(b.x, b.y);
+    context.stroke();
   }
 
   function animate(time) {
     frame = window.requestAnimationFrame(animate);
-    if (previousTime && time - previousTime < 1000 / 30) return;
-    const delta = previousTime ? Math.min((time - previousTime) / 1000, 0.05) : 0;
+    const steps = previousTime === null ? 1 : Math.min((time - previousTime) / referenceFrame, 3);
     previousTime = time;
-    elapsed += delta;
     context.clearRect(0, 0, width, height);
+    context.fillStyle = '#000';
 
-    for (const point of points) {
-      point.x += point.vx * delta;
-      point.y += point.vy * delta;
-      if (point.x < 0 || point.x > width) {
-        point.x = Math.max(0, Math.min(width, point.x));
-        point.vx *= -1;
-      }
-      if (point.y < 0 || point.y > height) {
-        point.y = Math.max(0, Math.min(height, point.y));
-        point.vy *= -1;
-      }
-    }
-    drawNetwork(points, 130, 0.18);
+    for (let i = 0; i < points.length; i++) {
+      const point = points[i];
+      point.x += point.vx * steps;
+      point.y += point.vy * steps;
+      if (point.x < 0 || point.x > width) point.vx *= -1;
+      if (point.y < 0 || point.y > height) point.vy *= -1;
+      context.fillRect(point.x - 0.5, point.y - 0.5, 1, 1);
 
-    // A quiet constellation forms after the mouse rests, and keeps moving on its own.
-    const idle = pointer.active && time - pointer.movedAt > 650;
-    hoverOpacity += ((idle ? 1 : 0) - hoverOpacity) * Math.min(delta * 4, 1);
-    if (hoverOpacity > 0.01) {
-      const nearby = satellites.map(({ angle, radius, phase }) => ({
-        x: pointer.x + Math.cos(angle + elapsed * 0.045) * radius + Math.sin(elapsed * 0.5 + phase) * 12,
-        y: pointer.y + Math.sin(angle + elapsed * 0.045) * radius + Math.cos(elapsed * 0.4 + phase) * 12,
-      }));
-      nearby.push(pointer);
-      drawNetwork(nearby, 170, hoverOpacity * 0.32);
+      // Only nearby real particles connect; there are no added orbiting satellites.
+      for (let j = i + 1; j < points.length; j++) {
+        drawLink(point, points[j], distanceSquared(point, points[j]), neighborRangeSquared);
+      }
+      if (pointer.active) {
+        const gapSquared = distanceSquared(point, pointer);
+        if (gapSquared < mouseRangeSquared) {
+          // Pull in the outer part of the mouse radius, leaving the center free to drift.
+          // At 60 Hz this is the reference's 3% attraction per frame.
+          if (gapSquared >= mouseRangeSquared / 2) {
+            const attraction = 1 - Math.pow(0.97, steps);
+            point.x += (pointer.x - point.x) * attraction;
+            point.y += (pointer.y - point.y) * attraction;
+          }
+          drawLink(point, pointer, gapSquared, mouseRangeSquared);
+        }
+      }
     }
   }
 
   function syncMotion() {
     if (frame !== null) window.cancelAnimationFrame(frame);
     frame = null;
-    previousTime = 0;
+    previousTime = null;
     const disabled = reducedMotion.matches || paused;
     canvas.hidden = disabled;
     toggle.hidden = reducedMotion.matches;
@@ -126,13 +114,10 @@
     pointer.x = event.clientX;
     pointer.y = event.clientY;
     pointer.active = true;
-    pointer.movedAt = performance.now();
-    hoverOpacity = 0;
   }, { passive: true });
   function releasePointer() { pointer.active = false; }
   document.documentElement.addEventListener('pointerleave', releasePointer);
   window.addEventListener('blur', releasePointer);
-  window.addEventListener('scroll', releasePointer, { passive: true });
   window.addEventListener('resize', resize, { passive: true });
   document.addEventListener('visibilitychange', () => {
     releasePointer();
