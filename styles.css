@@ -26,3 +26,16 @@ body{isolation:isolate}
 @media(max-width:760px){.motion-toggle{right:12px;bottom:12px}}
 @media(prefers-reduced-motion:reduce){.ambient-network,.motion-toggle{display:none}}
 @media print{.ambient-network,.motion-toggle{display:none}}
+
+/* Original institutional artwork, sized to sit alongside the affiliation text. */
+.inline-lab-logo{display:inline-block;position:relative;width:44px;height:28px;overflow:hidden;vertical-align:-7px;margin-right:6px}
+.inline-lab-logo img{display:block;position:absolute;left:0;top:-8px;width:100%;height:auto}
+.institution{display:flex;align-items:flex-start;gap:16px;min-width:0}
+.institution-details{min-width:0}
+.institution-logo{display:block;position:relative;flex:0 0 54px;width:54px;height:54px;margin-top:2px}
+.institution-logo img{display:block;width:100%;height:100%;object-fit:contain}
+/* Show only the seal in SZU's official identity sheet, preserving the source image. */
+.institution-logo--szu{overflow:hidden}
+.institution-logo--szu img{position:absolute;left:-88.0645%;top:-34.8387%;width:290.3226%;height:auto;max-width:none}
+@media(max-width:760px){.institution{gap:12px}.institution-logo{flex-basis:46px;width:46px;height:46px}}
+@media(max-width:520px){.timeline-date{margin-left:58px;margin-bottom:8px}}
