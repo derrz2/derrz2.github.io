@@ -15,7 +15,19 @@ main{min-width:0}.section{scroll-margin-top:30px}.eyebrow{color:var(--accent);fo
 
 .author-position{font-size:0.75rem;font-weight:500;color:#526775;background:#f1f5f7;padding:3px 7px;border-radius:3px}
 
-@media(min-width:761px) and (max-height:950px){.profile{position:static}}
+/* Keep the desktop profile in view throughout the page, including short windows. */
+@media screen and (min-width:761px){
+  .profile{top:99px;max-height:calc(100vh - 119px);max-height:calc(100dvh - 119px);overflow-y:auto;scrollbar-width:thin}
+}
+@media screen and (min-width:761px) and (max-height:800px){
+  .page-layout{padding-top:24px}
+  .profile-photo{width:140px;margin-bottom:18px}
+  .profile h1{margin-bottom:8px}
+  .affiliations{margin:18px 0 14px}
+  .affiliations p+p{margin-top:10px}
+  .social-links{gap:8px;margin-top:18px;padding-top:16px}
+  .profile-note{margin-top:10px}
+}
 
 /* The canvas stays behind content and never intercepts links or text selection. */
 body{isolation:isolate}
