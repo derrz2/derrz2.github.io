@@ -10,6 +10,43 @@
   <link rel="stylesheet" href="styles.css?v=20260929-sticky-profile">
   <script src="script.js" defer></script>
   <script src="ambient-network.js?v=20260928-network-v2" defer></script>
+  <!-- Umami: visits are collected only on the published personal website. -->
+  <script>
+    (() => {
+      const url = new URL(window.location.href);
+      const choice = url.searchParams.get('analytics');
+      if (choice !== 'off' && choice !== 'on') return;
+
+      const excluded = choice === 'off';
+      // Also honor exclusion for this visit if browser storage is unavailable.
+      window.umamiBeforeSend = (_type, payload) => excluded ? false : payload;
+      let persisted = false;
+      try {
+        if (excluded) localStorage.setItem('umami.disabled', '1');
+        else localStorage.removeItem('umami.disabled');
+        persisted = true;
+      } catch (_) {}
+      url.searchParams.delete('analytics');
+      window.history.replaceState(window.history.state, '', url.pathname + url.search + url.hash);
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const notice = document.createElement('div');
+        notice.setAttribute('role', 'status');
+        notice.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:1000;max-width:calc(100vw - 40px);box-sizing:border-box;padding:14px 18px;border:1px solid #cbdcd6;border-radius:10px;background:#f2faf6;color:#183b4e;font:14px/1.6 system-ui;box-shadow:0 4px 20px #183b4e14';
+        notice.textContent = excluded
+          ? (persisted ? '已排除此浏览器的访问统计。其他设备或浏览器需分别设置。' : '本次访问已排除；浏览器未允许保存设置，下次请再次使用排除链接。')
+          : (persisted ? '已恢复此浏览器的访问统计。' : '本次已恢复统计；浏览器未允许保存设置。');
+        document.body.appendChild(notice);
+        window.setTimeout(() => notice.remove(), 15000);
+      }, { once: true });
+    })();
+  </script>
+  <script defer src="https://cloud.umami.is/script.js"
+    data-website-id="df3b0f7f-696d-4b4d-ac0f-4ad92cf4cac5"
+    data-domains="derrz2.github.io"
+    data-exclude-hash="true"
+    data-exclude-search="true"
+    data-before-send="umamiBeforeSend"></script>
 </head>
 <body>
   <canvas id="ambient-network" class="ambient-network" aria-hidden="true" hidden></canvas>

@@ -21,3 +21,12 @@ Original artwork is stored locally so it does not depend on third-party image ho
 - `assets/sustech-logo.png`: [SUSTech official identity page](https://sustech.edu.cn/zh/school_logo.html), [original image](https://sustech.edu.cn/uploads/logo1.png).
 - `assets/szu-identity.png`: [Shenzhen University official identity page](https://www.szu.edu.cn/xxgk/sdbs.htm), [original identity sheet](https://www.szu.edu.cn/__local/4/80/FB/E7159633C600D80517DFA769DEC_EEB55FDB_1648E.gif?e=.gif). CSS displays only the university seal.
 - `assets/ncclab-logo.png`: [NCC Lab's official GitHub organization](https://github.com/ncclab-sustech), [organization avatar](https://avatars.githubusercontent.com/u/91411507?v=4). Displayed inline beside the lab name in About me.
+
+## Website analytics
+
+Umami tracks visits on `derrz2.github.io` only; local previews are excluded. View statistics in the private [Umami dashboard](https://cloud.umami.is/analytics/us/websites). URL query strings and section anchors are omitted from page URLs in analytics.
+
+- Exclude this browser: open <https://derrz2.github.io/?analytics=off>.
+- Restore tracking in this browser: open <https://derrz2.github.io/?analytics=on>.
+
+The preference is saved in this browser's local storage. Repeat the exclusion on each device/browser you use; clearing site data or using a private window resets the saved preference. The page shows a confirmation after applying either setting.
