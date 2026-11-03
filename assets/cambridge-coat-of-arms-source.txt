@@ -1,0 +1,9 @@
+University of Cambridge coat of arms
+
+Asset: cambridge-coat-of-arms.svg
+Source: https://commons.wikimedia.org/wiki/File:Coat_of_Arms_of_the_University_of_Cambridge.svg
+File: https://upload.wikimedia.org/wikipedia/commons/c/c3/Coat_of_Arms_of_the_University_of_Cambridge.svg
+Credit: Massive hair and Wikimedia Commons contributors (including ET72 and HapHaxion).
+License: Creative Commons Attribution-ShareAlike 3.0 Unported
+License URL: https://creativecommons.org/licenses/by-sa/3.0/
+Changes: None. The original SVG is displayed at a smaller size using CSS.

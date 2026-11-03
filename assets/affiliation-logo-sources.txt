@@ -1,0 +1,13 @@
+Fudan University
+Asset: fudan-logo.svg
+Source: https://commons.wikimedia.org/wiki/File:Fudan_University_Logo.svg
+Original artwork: Fudan University; vector: Prcmise.
+The source file page lists this image as public domain.
+Changes: Artwork unchanged; line endings normalized to LF. Displayed at a smaller size using CSS.
+
+University of Warwick
+Asset: warwick-crest.svg
+Source page: https://brand.warwick.ac.uk/brand-governance/departmental-lockups/
+Asset URL: https://dam.assets.warwick.ac.uk/images/Zz0yYjhmOTljMjRhY2ExMWYwYTYzMzlhMGZkMmQ5NGNhNg==?width=228
+Artwork: University of Warwick.
+Changes: None; displayed at a smaller size using CSS.
