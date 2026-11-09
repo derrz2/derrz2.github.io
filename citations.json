@@ -1,0 +1,55 @@
+{
+  "source": "Google Scholar",
+  "profileUrl": "https://scholar.google.com/citations?user=Yru0cJoAAAAJ&hl=en",
+  "fetchedAt": "2026-11-09T07:02:29.665430+00:00",
+  "papers": {
+    "omni-fmri": {
+      "citationId": "Yru0cJoAAAAJ:u5HHmVD_uO8C",
+      "count": 18,
+      "estimated": false,
+      "url": "https://scholar.google.com/scholar?oi=bibs&hl=en&oe=ASCII&cites=4398920089430550334"
+    },
+    "slim-brain": {
+      "citationId": "Yru0cJoAAAAJ:u-x6o8ySG0sC",
+      "count": 16,
+      "estimated": false,
+      "url": "https://scholar.google.com/scholar?oi=bibs&hl=en&oe=ASCII&cites=12337790209663387533"
+    },
+    "brain-dit": {
+      "citationId": "Yru0cJoAAAAJ:d1gkVwhDpl0C",
+      "count": 14,
+      "estimated": false,
+      "url": "https://scholar.google.com/scholar?oi=bibs&hl=en&oe=ASCII&cites=18188580104269528791"
+    },
+    "brainworld": {
+      "citationId": "Yru0cJoAAAAJ:2osOgNQ5qMEC",
+      "count": 10,
+      "estimated": false,
+      "url": "https://scholar.google.com/scholar?oi=bibs&hl=en&oe=ASCII&cites=3899683479898407188"
+    },
+    "flexibrain": {
+      "citationId": "Yru0cJoAAAAJ:9yKSN-GCB0IC",
+      "count": 7,
+      "estimated": false,
+      "url": "https://scholar.google.com/scholar?oi=bibs&hl=en&oe=ASCII&cites=4550103037207622450"
+    },
+    "braintaskonomy": {
+      "citationId": "Yru0cJoAAAAJ:qjMakFHDy7sC",
+      "count": 1,
+      "estimated": false,
+      "url": "https://scholar.google.com/scholar?oi=bibs&hl=en&oe=ASCII&cites=17710821284854602928"
+    },
+    "flatclip": {
+      "citationId": "Yru0cJoAAAAJ:IjCSPb-OGe4C",
+      "count": 0,
+      "estimated": false,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Yru0cJoAAAAJ&citation_for_view=Yru0cJoAAAAJ:IjCSPb-OGe4C"
+    },
+    "scaling-study": {
+      "citationId": "Yru0cJoAAAAJ:UeHWp8X0CEIC",
+      "count": 0,
+      "estimated": false,
+      "url": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=Yru0cJoAAAAJ&citation_for_view=Yru0cJoAAAAJ:UeHWp8X0CEIC"
+    }
+  }
+}

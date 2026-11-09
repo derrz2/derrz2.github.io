@@ -30,3 +30,13 @@ Umami tracks visits on `derrz2.github.io` only; local previews are excluded. Vie
 - Restore tracking in this browser: open <https://derrz2.github.io/?analytics=on>.
 
 The preference is saved in this browser's local storage. Repeat the exclusion on each device/browser you use; clearing site data or using a private window resets the saved preference. The page shows a confirmation after applying either setting.
+
+## Citation counts and publication
+
+The approved Sites homepage is mirrored here as static files. The selected favicon is `assets/logos/09.svg` (双半球). Citation counts remain beside the Paper / Code links.
+
+GitHub Pages is deployed by `.github/workflows/pages.yml` on pushes to `main`, manual runs, and hourly scheduled runs. The workflow calls the Google Scholar Author API using the repository Secret `SERPAPI_API_KEY`, matches all eight publications by stable Scholar IDs, then publishes `citations.json` with the static site. The browser rechecks that JSON every five minutes while visible. Scheduled runs may be delayed by GitHub and require available SerpAPI quota; this is not instant indexing.
+
+No secret belongs in source or the deployed artifact. `_site/` is an allowlisted static build; it excludes workflow scripts, caches, and local configuration. The updater preserves the last verified cached counts on upstream failures and labels them stale. GitHub may disable scheduled workflows after prolonged repository inactivity; check Actions if updates stop.
+
+Local static build: `node scripts/build-pages.mjs`.

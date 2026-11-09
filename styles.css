@@ -102,3 +102,10 @@ body{isolation:isolate}
 .paper-details .author-position { padding: 0; background: none; border-radius: 0; letter-spacing: 0; }
 .paper-details .paper-links { margin: 0; gap: 12px; font-size: inherit; }
 .paper-details .paper-links a { white-space: nowrap; }
+
+/* Scholar counts share the compact publication action row. */
+.paper-links { flex-wrap: wrap; align-items: baseline; row-gap: 4px; }
+.citation-link { white-space: nowrap; color: #637771; font-weight: 500; }
+.citation-link .citation-count { margin-left: 0; font-size: inherit; font-weight: 650; color: var(--accent); }
+.citation-link > span:first-child { margin: 0 3px 0 0; }
+.citation-status { color: var(--muted); font-size: .6875rem; line-height: 1.7; margin: 8px 0 6px; }

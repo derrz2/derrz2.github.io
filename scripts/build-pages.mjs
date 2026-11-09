@@ -1,0 +1,11 @@
+import {mkdir,cp,rm,readFile,writeFile} from 'node:fs/promises';
+const html=await readFile('index.html','utf8');
+const data=JSON.parse(await readFile('citations.json','utf8'));
+const slugs=[...html.matchAll(/class="citation-link" data-paper="([^"]+)"/g)].map(m=>m[1]);
+if(slugs.length!==8||!slugs.every(s=>Number.isSafeInteger(data.papers?.[s]?.count)))throw Error('Invalid publication citation snapshot');
+await rm('_site',{recursive:true,force:true});await mkdir('_site');
+for(const path of ['index.html','styles.css','script.js','ambient-network.js','citations.js','citations.json','assets','logo-review'])await cp(path,'_site/'+path,{recursive:true});
+const rendered=html.replace(/(<a class="citation-link" data-paper="([^"]+)"[^>]*>[\s\S]*?<span class="citation-count">)\d+(<\/span>)/g,(_,before,slug,after)=>before+data.papers[slug].count+after).replace(/Google Scholar · Last verified [^<]+/, 'Google Scholar · Last verified '+data.fetchedAt.slice(0,10)+' · Checking for updates…');
+await writeFile('_site/index.html',rendered);
+await writeFile('_site/.nojekyll','');
+console.log('Built static homepage and logo gallery with eight citation counts.');

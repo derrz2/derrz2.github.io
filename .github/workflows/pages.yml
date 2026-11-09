@@ -1,0 +1,54 @@
+name: Publish homepage and update citations
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: '23 * * * *'
+permissions:
+  contents: read
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/configure-pages@v5
+      - name: Restore last verified citation counts
+        uses: actions/cache/restore@v4
+        with:
+          path: .citation-cache
+          key: scholar-citations-${{ github.run_id }}
+          restore-keys: scholar-citations-
+      - name: Refresh Google Scholar counts
+        run: node scripts/update-citations.mjs
+        env:
+          SERPAPI_API_KEY: ${{ secrets.SERPAPI_API_KEY }}
+      - name: Retain verified citation counts
+        uses: actions/cache/save@v4
+        with:
+          path: .citation-cache
+          key: scholar-citations-${{ github.run_id }}
+      - name: Build static site
+        run: node scripts/build-pages.mjs
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
