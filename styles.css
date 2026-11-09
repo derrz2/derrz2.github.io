@@ -108,4 +108,3 @@ body{isolation:isolate}
 .citation-link { white-space: nowrap; color: #637771; font-weight: 500; }
 .citation-link .citation-count { margin-left: 0; font-size: inherit; font-weight: 650; color: var(--accent); }
 .citation-link > span:first-child { margin: 0 3px 0 0; }
-.citation-status { color: var(--muted); font-size: .6875rem; line-height: 1.7; margin: 8px 0 6px; }

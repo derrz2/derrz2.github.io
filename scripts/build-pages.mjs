@@ -5,7 +5,7 @@ const slugs=[...html.matchAll(/class="citation-link" data-paper="([^"]+)"/g)].ma
 if(slugs.length!==8||!slugs.every(s=>Number.isSafeInteger(data.papers?.[s]?.count)))throw Error('Invalid publication citation snapshot');
 await rm('_site',{recursive:true,force:true});await mkdir('_site');
 for(const path of ['index.html','styles.css','script.js','ambient-network.js','citations.js','citations.json','assets','logo-review'])await cp(path,'_site/'+path,{recursive:true});
-const rendered=html.replace(/(<a class="citation-link" data-paper="([^"]+)"[^>]*>[\s\S]*?<span class="citation-count">)\d+(<\/span>)/g,(_,before,slug,after)=>before+data.papers[slug].count+after).replace(/Google Scholar · Last verified [^<]+/, 'Google Scholar · Last verified '+data.fetchedAt.slice(0,10)+' · Checking for updates…');
+const rendered=html.replace(/(<a class="citation-link" data-paper="([^"]+)"[^>]*>[\s\S]*?<span class="citation-count">)\d+(<\/span>)/g,(_,before,slug,after)=>before+data.papers[slug].count+after);
 await writeFile('_site/index.html',rendered);
 await writeFile('_site/.nojekyll','');
 console.log('Built static homepage and logo gallery with eight citation counts.');

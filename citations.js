@@ -1,5 +1,4 @@
 (() => {
- const status=document.getElementById('citation-status');
  let busy=false;
  function date(iso){return new Intl.DateTimeFormat('en',{year:'numeric',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',timeZoneName:'short'}).format(new Date(iso));}
  async function refresh(){
@@ -17,10 +16,9 @@
     link.href=url.href;link.querySelector('.citation-count').textContent=item.count+(item.estimated?'*':'');
     link.title='Google Scholar · Verified '+date(data.fetchedAt)+(item.estimated?' · Estimated by Scholar':'');
    });
-   const stale=data.syncState==='stale'||Date.now()-Date.parse(data.fetchedAt)>2*60*60*1000;
-   status.textContent='Google Scholar · '+(stale?'Last verified ':'Updated ')+date(data.fetchedAt)+(stale?' · Update delayed; showing last verified counts.':' · Automatically updated hourly.');
-   status.title='Google Scholar updates its own index on a separate schedule. Counts are not instantaneous.';
-  }catch{status.textContent=status.textContent.replace(/ · Sync unavailable\./g,'').replace(' · Checking for updates…','').replace(' · Automatically updated hourly.','')+' · Sync unavailable.';}
+  }catch{
+   // Keep the last verified counts and their per-paper timestamp tooltip.
+  }
   finally{busy=false;}
  }
  refresh();setInterval(refresh,5*60*1000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh();});
