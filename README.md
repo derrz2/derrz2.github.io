@@ -33,7 +33,7 @@ The preference is saved in this browser's local storage. Repeat the exclusion on
 
 ## Citation counts and publication
 
-The approved Sites homepage is mirrored here as static files. The selected favicon is `assets/logos/09.svg` (双半球). Citation counts remain beside the Paper / Code links.
+The approved Sites homepage is mirrored here as static files. The selected favicon is `assets/logos/46.svg` (微型 · WH). Citation counts remain beside the Paper / Code links.
 
 GitHub Pages is deployed by `.github/workflows/pages.yml` on pushes to `main`, manual runs, and hourly scheduled runs. The workflow calls the Google Scholar Author API using the repository Secret `SERPAPI_API_KEY`, matches all eight publications by stable Scholar IDs, then publishes `citations.json` with the static site. The browser rechecks that JSON every five minutes while visible. Scheduled runs may be delayed by GitHub and require available SerpAPI quota; this is not instant indexing.
 
