@@ -4,13 +4,16 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Wenhao Ye — Biomedical Engineering student at Shenzhen University and visiting researcher at SUSTech. Research in NeuroAI and fMRI foundation models.">
-  <meta name="theme-color" content="#183b4e">
+  <meta name="theme-color" content="#ffffff">
   <title>Wenhao Ye | NeuroAI &amp; fMRI Foundation Models</title>
   <link rel="icon" type="image/svg+xml" href="/assets/logos/46.svg?v=20261117">
-  <link rel="stylesheet" href="styles.css?v=20261117-logo-af">
-  <script src="script.js" defer></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20261121-refined">
+  <script src="script.js?v=20261121-refined" defer></script>
   <script src="citations.js?v=20261109-cleanup" defer></script>
-  <script src="ambient-network.js?v=20260928-network-v2" defer></script>
+  <script src="ambient-network.js?v=20261121-refined" defer></script>
   <!-- Umami: visits are collected only on the published personal website. -->
   <script>
     (() => {
@@ -52,9 +55,10 @@
 <body>
   <canvas id="ambient-network" class="ambient-network" aria-hidden="true" hidden></canvas>
   <a class="skip-link" href="#main">Skip to content</a>
+
   <header class="site-header">
     <div class="header-inner">
-      <a class="wordmark" href="#about" aria-label="Wenhao Ye, home"><img class="placement-logo" src="assets/logos/46.svg" alt="" aria-hidden="true" width="48" height="48"><span>Wenhao Ye<span class="wordmark-dot">.</span></span></a>
+      <a class="wordmark" href="#about" aria-label="Wenhao Ye, home"><svg class="placement-logo" viewBox="0 0 128 128" fill="none" aria-hidden="true"><path d="M59 29C42 16 25 32 30 47C15 58 21 80 36 82L44 99L51 79L58 99V49M72 29C89 16 106 32 101 47C116 58 110 80 95 82V99M72 49V99M72 70H95" stroke="currentColor" stroke-width="6.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Wenhao Ye<span class="wordmark-dot">.</span></span></a>
       <nav aria-label="Main navigation">
         <a class="nav-link active" href="#about" aria-current="location">About</a>
         <a class="nav-link" href="#research">Research</a>
@@ -63,124 +67,177 @@
     </div>
   </header>
 
-  <div class="page-layout">
-    <aside class="profile" aria-label="Profile and contact">
-      <div class="profile-photo"><img src="assets/wenhao-portrait-lamp-removed.png" alt="Wenhao Ye" width="1140" height="1380" loading="eager" decoding="async"></div>
-      <h1>Wenhao Ye</h1>
-      <p class="profile-role">Biomedical Engineering<br>Undergraduate</p>
-      <div class="affiliations">
-        <p><strong>Shenzhen University</strong><span>B.Eng. Student</span></p>
-        <p><strong>SUSTech · NCC Lab</strong><span>Visiting Research Student</span></p>
-      </div>
-      <p class="location"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>Shenzhen, China</p>
-      <div class="social-links">
-        <a href="mailto:wenhao041211@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg>Email</a>
-        <a href="https://scholar.google.com/citations?user=Yru0cJoAAAAJ" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m2 9 10-6 10 6-10 6L2 9Zm4 3v6c4 3 8 3 12 0v-6M22 9v8"/></svg>Google Scholar</a>
-        <a href="https://github.com/derrz2" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 1-4-2-6-2m12 5v-4a3.5 3.5 0 0 0-1-2.7c3.3-.4 6.8-1.6 6.8-7.3a5.7 5.7 0 0 0-1.5-4 5.3 5.3 0 0 0-.1-4S18-.4 15 1.5a14.4 14.4 0 0 0-7 0C5-.4 3.8 0 3.8 0a5.3 5.3 0 0 0-.1 4A5.7 5.7 0 0 0 2.2 8c0 5.7 3.5 6.9 6.8 7.3A3.5 3.5 0 0 0 8 18v4" transform="translate(1 2) scale(.9)"/></svg>GitHub</a>
-      </div>
-      <p class="profile-note">NeuroAI · Representation learning</p>
-    </aside>
 
-    <main id="main">
-      <section id="about" class="about section"><div class="about-imprint" aria-hidden="true"><img class="placement-logo" src="assets/logos/46.svg" alt="" aria-hidden="true" width="48" height="48"></div>
-        <div class="eyebrow">BRAIN SCIENCE × MACHINE LEARNING</div>
-        <h2>About me</h2>
-        <p class="intro">I study how we can learn useful representations from the human brain.</p>
-        <p>I am an undergraduate in <strong>Biomedical Engineering at Shenzhen University</strong>, and a visiting research student at the <strong><span class="inline-lab-logo" aria-hidden="true"><img src="assets/ncclab-logo.png" alt="" width="460" height="460" decoding="async"></span>Neural Computing and Control (NCC) Lab, SUSTech</strong>, advised by <a href="https://scholar.google.com/citations?hl=en&amp;user=UpP9hJ8AAAAJ" target="_blank" rel="noopener">Prof. Quanying Liu</a>. I also have the opportunity to collaborate with <a href="https://scholar.google.com/citations?user=SSbjWKAAAAAJ&amp;hl=en" target="_blank" rel="noopener">Prof. Hongkai Wen</a> and <a href="https://scholar.google.com/citations?user=0MtAVz4AAAAJ&amp;hl=en" target="_blank" rel="noopener">Prof. Jianfeng Feng</a> at <strong class="inline-university"><img class="inline-university-logo" src="assets/fudan-logo.svg" alt="" width="512" height="511" decoding="async">Fudan University</strong> and <strong class="inline-university"><img class="inline-university-logo" src="assets/warwick-crest.svg" alt="" width="52" height="75" decoding="async">the University of Warwick</strong>.</p>
-        <p>My research focuses on <strong>NeuroAI</strong>, particularly foundation models and representation learning for fMRI. I am also exploring trustworthy AI systems with JEPA and uncertainty-aware learning.</p>
-        <aside class="opportunity-note" aria-labelledby="opportunity-title">
-          <p class="opportunity-title" id="opportunity-title">I am looking for a position starting in <span>Fall 2027.</span></p>
-          <p>I welcome questions about my work and opportunities to exchange ideas. Feel free to contact me at <a href="mailto:wenhao041211@gmail.com">wenhao041211@gmail.com</a>.</p>
+  <main id="main" class="l1-wrap">
+    <section id="about" class="section l1-hero">
+      <div class="l1-hero-grid">
+        <div class="l1-hero-text">
+          <div class="eyebrow"><span class="gold-dot" aria-hidden="true"></span>BRAIN SCIENCE × MACHINE LEARNING</div>
+          <h1 class="l1-name">Wenhao Ye</h1>
+          <p class="l1-intro">I study how to learn meaningful representations of the human brain, with the goal of bridging the gap between brain modeling and real-world applications through AI.</p>
+          <div class="bio-prose">
+            <p>I am an undergraduate in <strong>Biomedical Engineering at Shenzhen University</strong>, and a visiting research student at the <strong><span class="inline-lab-logo" aria-hidden="true"><img src="assets/ncclab-logo.png" alt="" width="460" height="460" decoding="async"></span>Neural Computing and Control (NCC) Lab, SUSTech</strong>, advised by <a href="https://scholar.google.com/citations?hl=en&amp;user=UpP9hJ8AAAAJ" target="_blank" rel="noopener">Prof. Quanying Liu</a>. I also have the opportunity to collaborate with <a href="https://scholar.google.com/citations?user=SSbjWKAAAAAJ&amp;hl=en" target="_blank" rel="noopener">Prof. Hongkai Wen</a> and <a href="https://scholar.google.com/citations?user=0MtAVz4AAAAJ&amp;hl=en" target="_blank" rel="noopener">Prof. Jianfeng Feng</a> at <strong class="inline-university"><span class="inline-uni-badge" aria-hidden="true"><img class="inline-university-logo" src="assets/fudan-logo.svg" alt="" width="512" height="511" decoding="async"></span>Fudan University</strong> and <strong class="inline-university"><span class="inline-uni-badge" aria-hidden="true"><img class="inline-university-logo" src="assets/warwick-crest.svg" alt="" width="52" height="75" decoding="async"></span>the University of Warwick</strong>.</p>
+            <p>My research focuses on <strong>NeuroAI</strong>, particularly foundation models and representation learning for fMRI. I am also exploring trustworthy AI systems with JEPA and uncertainty-aware learning.</p>
+          </div>
+          
+        <div class="social-links">
+          <a href="mailto:wenhao041211@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg><span>Email</span><em class="ext-arrow" aria-hidden="true">↗</em></a>
+          <a href="https://scholar.google.com/citations?user=Yru0cJoAAAAJ" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m2 9 10-6 10 6-10 6L2 9Zm4 3v6c4 3 8 3 12 0v-6M22 9v8"/></svg><span>Google Scholar</span><em class="ext-arrow" aria-hidden="true">↗</em></a>
+          <a href="https://github.com/derrz2" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 1-4-2-6-2m12 5v-4a3.5 3.5 0 0 0-1-2.7c3.3-.4 6.8-1.6 6.8-7.3a5.7 5.7 0 0 0-1.5-4 5.3 5.3 0 0 0-.1-4S18-.4 15 1.5a14.4 14.4 0 0 0-7 0C5-.4 3.8 0 3.8 0a5.3 5.3 0 0 0-.1 4A5.7 5.7 0 0 0 2.2 8c0 5.7 3.5 6.9 6.8 7.3A3.5 3.5 0 0 0 8 18v4" transform="translate(1 2) scale(.9)"/></svg><span>GitHub</span><em class="ext-arrow" aria-hidden="true">↗</em></a>
+        </div>
+
+        </div>
+        <aside class="l1-portrait-col" aria-label="Portrait and affiliation">
+          <div class="profile-photo l1-photo"><img src="assets/wenhao-portrait-lamp-removed.png" alt="Wenhao Ye" width="1140" height="1380" loading="eager" decoding="async"></div>
+          <div class="l1-id-box">
+            <div class="l1-id-row"><strong>Shenzhen University</strong><span>B.Eng. · Biomedical Engineering</span></div>
+            <div class="l1-id-row"><strong>SUSTech · NCC Lab</strong><span>Visiting Research Student</span></div>
+            <p class="l1-loc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Shenzhen, China</span></p>
+          </div>
         </aside>
+      </div>
+
+      <div class="l1-below-hero">
+        
+        <aside class="opportunity-note" aria-labelledby="opportunity-title">
+          <div class="opportunity-copy">
+            <p class="opportunity-title" id="opportunity-title"><span class="gold-dot" aria-hidden="true"></span>I am looking for a position starting in <span class="fall-accent">Fall 2027.</span></p>
+            <p>I welcome questions about my work and opportunities to exchange ideas. Feel free to contact me at <a href="mailto:wenhao041211@gmail.com">wenhao041211@gmail.com</a>.</p>
+          </div>
+          <button type="button" class="copy-email-btn" data-copy-email="wenhao041211@gmail.com" aria-label="Copy email address">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span data-copy-text>Copy email</span>
+          </button>
+        </aside>
+
         <div class="interest-list" aria-label="Research interests"><span>fMRI foundation models</span><span>Representation learning</span><span>Brain–computer interfaces</span></div>
-      </section>
+      </div>
+    </section>
 
-      <section id="research" class="section research">
-        <div class="section-heading"><h2>Publications &amp; manuscripts</h2><span class="section-aside">8 works</span></div>
-        <p class="section-caption">More work from our team: <a href="https://www.fmriatlas.com/" target="_blank" rel="noopener">fMRI Atlas <span aria-hidden="true">↗</span></a></p>
-        <p class="section-caption"><span>* Equal contribution · † Corresponding author</span></p>
+    <section id="research" class="section l1-sec">
+      <div class="section-heading"><h2>Publications &amp; manuscripts</h2><span class="section-aside">8 works</span></div>
+      <div class="research-subbar">
+        <div>
+          <p class="section-caption">More work from our team: <a href="https://www.fmriatlas.com/" target="_blank" rel="noopener">fMRI Atlas <span aria-hidden="true">↗</span></a></p>
+          <p class="section-caption"><span>* Equal contribution · † Corresponding author</span></p>
+        </div>
+        
+          <div class="pub-filters" role="group" aria-label="Filter publications">
+            <button type="button" class="pub-filter is-active" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" class="pub-filter" data-filter="first" aria-pressed="false">First / Co-first</button>
+            <button type="button" class="pub-filter" data-filter="conference" aria-pressed="false">Conferences</button>
+            <button type="button" class="pub-filter" data-filter="preprint" aria-pressed="false">Preprints</button>
+          </div>
 
-        <div class="paper-list" id="publications-list">
-          <article class="paper">
-            <a class="paper-image" href="https://arxiv.org/abs/2601.23090" target="_blank" rel="noopener" aria-label="Read Omni-fMRI on arXiv"><img src="assets/omni-fmri.png" alt="Omni-fMRI dynamic patching and pretraining framework" width="440" height="290"><span>Omni-fMRI</span></a>
-            <div class="paper-body"><div class="paper-meta"><span class="venue">ICML 2026</span><span class="author-position">Co-first author</span></div><h3><a href="https://arxiv.org/abs/2601.23090" target="_blank" rel="noopener">Omni-fMRI: A Universal Atlas-Free fMRI Foundation Model</a></h3><p class="authors">M. Wang*, <strong>Wenhao Ye*</strong>, J. Xia, J. Zhang, X. Pan, M. Xu, H. Deng, H. Wen<sup>†</sup>, Q. Liu<sup>†</sup></p><p class="paper-summary">Dynamic patching enables efficient, atlas-free representation learning directly from voxel-level fMRI.</p><div class="paper-links"><a class="citation-link" data-paper="omni-fmri" href="https://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;oe=ASCII&amp;cites=4398920089430550334" target="_blank" rel="noopener" title="Google Scholar citation count"><span aria-hidden="true">↗</span> Cited by <span class="citation-count">18</span></a><a href="https://arxiv.org/abs/2601.23090" target="_blank" rel="noopener">Paper <span aria-hidden="true">↗</span></a><a href="https://github.com/OneMore1/Omni-fMRI" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a></div></div>
+      </div>
+      <div class="l1-papers" id="publications-list">
+        
+          <article class="paper paper--featured" data-first="1" data-kind="conference">
+            <a class="paper-image" href="https://arxiv.org/abs/2601.23090" target="_blank" rel="noopener" data-zoom-title="Omni-fMRI: A Universal Atlas-Free fMRI Foundation Model" aria-label="Inspect Omni-fMRI figure or read on arXiv"><div class="paper-thumb-stage"><img src="assets/omni-fmri.png" alt="Omni-fMRI dynamic patching and pretraining framework" width="440" height="290"></div><span>Omni-fMRI <em>Zoom</em></span></a>
+            <div class="paper-body"><div class="paper-meta"><span class="venue">ICML 2026</span><span class="author-position">Co-first author</span></div><h3><a href="https://arxiv.org/abs/2601.23090" target="_blank" rel="noopener">Omni-fMRI: A Universal Atlas-Free fMRI Foundation Model</a></h3><p class="authors">M. Wang*, <strong>Wenhao Ye*</strong>, J. Xia, J. Zhang, X. Pan, M. Xu, H. Deng, H. Wen<sup>†</sup>, Q. Liu<sup>†</sup></p><p class="paper-summary">Dynamic patching enables efficient, atlas-free representation learning directly from voxel-level fMRI.</p><div class="paper-links"><a class="citation-link" data-paper="omni-fmri" href="https://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;oe=ASCII&amp;cites=4398920089430550334" target="_blank" rel="noopener" title="Google Scholar citation count"><span aria-hidden="true">↗</span> Cited by <span class="citation-count">17</span></a><a class="action-link action-link--primary" href="https://arxiv.org/abs/2601.23090" target="_blank" rel="noopener">Paper <span aria-hidden="true">↗</span></a><a class="action-link" href="https://github.com/OneMore1/Omni-fMRI" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a></div></div>
           </article>
-          <article class="paper">
-            <a class="paper-image" href="https://arxiv.org/abs/2606.11500" target="_blank" rel="noopener" aria-label="Read FlexiBrain on arXiv"><img src="assets/flexibrain.png" alt="FlexiBrain resolution-agnostic fMRI encoding architecture" width="440" height="290" loading="lazy"><span>FlexiBrain</span></a>
-            <div class="paper-body"><div class="paper-meta"><span class="venue">ECCV 2026</span><span class="author-position">Co-first author</span></div><h3><a href="https://arxiv.org/abs/2606.11500" target="_blank" rel="noopener">FlexiBrain: Resolution-Agnostic Voxel-Level Encoding for Native fMRI</a></h3><p class="authors">M. Wang*, <strong>Wenhao Ye*</strong>, J. Xia*, M. Xu, H. Wen<sup>†</sup>, Q. Liu<sup>†</sup></p><p class="paper-summary">Physical-unit patching and Mamba-JEPA learn native-space fMRI representations across different acquisition resolutions.</p><div class="paper-links"><a class="citation-link" data-paper="flexibrain" href="https://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;oe=ASCII&amp;cites=4550103037207622450" target="_blank" rel="noopener" title="Google Scholar citation count"><span aria-hidden="true">↗</span> Cited by <span class="citation-count">7</span></a><a href="https://arxiv.org/abs/2606.11500" target="_blank" rel="noopener">Paper <span aria-hidden="true">↗</span></a><a href="https://github.com/OneMore1/FlexiBrain" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a></div></div>
+          <article class="paper paper--featured" data-first="1" data-kind="conference">
+            <a class="paper-image" href="https://arxiv.org/abs/2606.11500" target="_blank" rel="noopener" data-zoom-title="FlexiBrain: Resolution-Agnostic Voxel-Level Encoding for Native fMRI" aria-label="Inspect FlexiBrain figure or read on arXiv"><div class="paper-thumb-stage"><img src="assets/flexibrain.png" alt="FlexiBrain resolution-agnostic fMRI encoding architecture" width="440" height="290"></div><span>FlexiBrain <em>Zoom</em></span></a>
+            <div class="paper-body"><div class="paper-meta"><span class="venue">ECCV 2026</span><span class="author-position">Co-first author</span></div><h3><a href="https://arxiv.org/abs/2606.11500" target="_blank" rel="noopener">FlexiBrain: Resolution-Agnostic Voxel-Level Encoding for Native fMRI</a></h3><p class="authors">M. Wang*, <strong>Wenhao Ye*</strong>, J. Xia*, M. Xu, H. Wen<sup>†</sup>, Q. Liu<sup>†</sup></p><p class="paper-summary">Physical-unit patching and Mamba-JEPA learn native-space fMRI representations across different acquisition resolutions.</p><div class="paper-links"><a class="citation-link" data-paper="flexibrain" href="https://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;oe=ASCII&amp;cites=4550103037207622450" target="_blank" rel="noopener" title="Google Scholar citation count"><span aria-hidden="true">↗</span> Cited by <span class="citation-count">6</span></a><a class="action-link action-link--primary" href="https://arxiv.org/abs/2606.11500" target="_blank" rel="noopener">Paper <span aria-hidden="true">↗</span></a><a class="action-link" href="https://github.com/OneMore1/FlexiBrain" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a></div></div>
           </article>
-          <article class="paper">
-            <a class="paper-image" href="https://arxiv.org/abs/2609.27232" target="_blank" rel="noopener" aria-label="Read A Scaling Study for fMRI Foundation Models on arXiv"><img src="assets/scaling-study.png" alt="Overview of the scaling study for fMRI foundation models" width="440" height="290" loading="lazy"><span>Scaling fMRI models</span></a>
-            <div class="paper-body"><div class="paper-meta"><span class="venue neutral">Preprint · 2026</span><span class="author-position">First author</span></div><h3><a href="https://arxiv.org/abs/2609.27232" target="_blank" rel="noopener">A Scaling Study for fMRI Foundation Models</a></h3><p class="authors"><strong>Wenhao Ye</strong>, X. Pan, J. Xia, J. Zhang, J. Yu, M. Wang<sup>†</sup>, Q. Liu<sup>†</sup></p><p class="paper-summary">A controlled scaling study reveals how data size, model capacity, and training duration jointly affect fMRI performance.</p><div class="paper-links"><a class="citation-link" data-paper="scaling-study" href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=Yru0cJoAAAAJ&amp;citation_for_view=Yru0cJoAAAAJ:UeHWp8X0CEIC" target="_blank" rel="noopener" title="Google Scholar citation count"><span aria-hidden="true">↗</span> Cited by <span class="citation-count">0</span></a><a href="https://arxiv.org/abs/2609.27232" target="_blank" rel="noopener">Paper <span aria-hidden="true">↗</span></a><a href="https://github.com/derrz2/neurojepa" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a></div></div>
+          <article class="paper paper--featured" data-first="1" data-kind="preprint">
+            <a class="paper-image" href="https://arxiv.org/abs/2609.27232" target="_blank" rel="noopener" data-zoom-title="A Scaling Study for fMRI Foundation Models" aria-label="Inspect Scaling Study figure or read on arXiv"><div class="paper-thumb-stage"><img src="assets/scaling-study.png" alt="Overview of the scaling study for fMRI foundation models" width="440" height="290"></div><span>Scaling fMRI models <em>Zoom</em></span></a>
+            <div class="paper-body"><div class="paper-meta"><span class="venue neutral">Preprint · 2026</span><span class="author-position">First author</span></div><h3><a href="https://arxiv.org/abs/2609.27232" target="_blank" rel="noopener">A Scaling Study for fMRI Foundation Models</a></h3><p class="authors"><strong>Wenhao Ye</strong>, X. Pan, J. Xia, J. Zhang, J. Yu, M. Wang<sup>†</sup>, Q. Liu<sup>†</sup></p><p class="paper-summary">A controlled scaling study reveals how data size, model capacity, and training duration jointly affect fMRI performance.</p><div class="paper-links"><a class="citation-link" data-paper="scaling-study" href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=Yru0cJoAAAAJ&amp;citation_for_view=Yru0cJoAAAAJ:UeHWp8X0CEIC" target="_blank" rel="noopener" title="Google Scholar citation count"><span aria-hidden="true">↗</span> Cited by <span class="citation-count">0</span></a><a class="action-link action-link--primary" href="https://arxiv.org/abs/2609.27232" target="_blank" rel="noopener">Paper <span aria-hidden="true">↗</span></a><a class="action-link" href="https://github.com/derrz2/neurojepa" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a></div></div>
           </article>
-          <article class="paper paper-text">
+
+        
+          <article class="paper paper-text" data-first="0" data-kind="conference">
             <div class="paper-body">
               <h3><a href="https://arxiv.org/abs/2606.17742" target="_blank" rel="noopener">BrainWorld: A Structural-Prior World Model for Whole-Brain 4D fMRI Generation</a></h3>
               <p class="authors">J. Xia, <strong>Wenhao Ye</strong>, J. Zhang, X. Pan, M. Wang<sup>†</sup>, Q. Liu<sup>†</sup></p>
-              <div class="paper-details"><span class="venue">NeurIPS 2026</span><span class="author-position">Second author</span><span class="award">Oral · Top 0.36%</span><div class="paper-links"><a class="citation-link" data-paper="brainworld" href="https://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;oe=ASCII&amp;cites=3899683479898407188" target="_blank" rel="noopener" title="Google Scholar citation count"><span aria-hidden="true">↗</span> Cited by <span class="citation-count">10</span></a><a href="https://arxiv.org/abs/2606.17742" target="_blank" rel="noopener">Paper <span aria-hidden="true">↗</span></a><a href="https://github.com/REDMAO4869/BrainWorld" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a></div></div>
+              <div class="paper-details"><span class="venue">NeurIPS 2026</span><span class="author-position">Second author</span><span class="award"><i class="gold-pip" aria-hidden="true"></i>Oral · Top 0.36%</span><div class="paper-links"><a class="citation-link" data-paper="brainworld" href="https://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;oe=ASCII&amp;cites=3899683479898407188" target="_blank" rel="noopener" title="Google Scholar citation count"><span aria-hidden="true">↗</span> Cited by <span class="citation-count">9</span></a><a class="action-link action-link--primary" href="https://arxiv.org/abs/2606.17742" target="_blank" rel="noopener">Paper <span aria-hidden="true">↗</span></a><a class="action-link" href="https://github.com/REDMAO4869/BrainWorld" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a></div></div>
             </div>
           </article>
-          <article class="paper paper-text">
+          <article class="paper paper-text" data-first="0" data-kind="conference">
             <div class="paper-body">
               <h3><a href="https://arxiv.org/abs/2609.31204" target="_blank" rel="noopener">FlatCLIP: A Geometry-Aware Surface-Level Baseline for fMRI Representation Learning</a></h3>
               <p class="authors">M. Wang, <strong>Wenhao Ye</strong>, Z. Ning, J. Zuo, J. Xia, H. Wen<sup>†</sup>, Q. Liu<sup>†</sup></p>
-              <div class="paper-details"><span class="venue">NeurIPS 2026</span><span class="author-position">Second author</span><div class="paper-links"><a class="citation-link" data-paper="flatclip" href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=Yru0cJoAAAAJ&amp;citation_for_view=Yru0cJoAAAAJ:IjCSPb-OGe4C" target="_blank" rel="noopener" title="Google Scholar citation count"><span aria-hidden="true">↗</span> Cited by <span class="citation-count">0</span></a><a href="https://arxiv.org/abs/2609.31204" target="_blank" rel="noopener">Paper <span aria-hidden="true">↗</span></a><a href="https://github.com/OneMore1/FlatClip" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a></div></div>
+              <div class="paper-details"><span class="venue">NeurIPS 2026</span><span class="author-position">Second author</span><div class="paper-links"><a class="citation-link" data-paper="flatclip" href="https://scholar.google.com/citations?view_op=view_citation&amp;hl=en&amp;user=Yru0cJoAAAAJ&amp;citation_for_view=Yru0cJoAAAAJ:IjCSPb-OGe4C" target="_blank" rel="noopener" title="Google Scholar citation count"><span aria-hidden="true">↗</span> Cited by <span class="citation-count">0</span></a><a class="action-link action-link--primary" href="https://arxiv.org/abs/2609.31204" target="_blank" rel="noopener">Paper <span aria-hidden="true">↗</span></a><a class="action-link" href="https://github.com/OneMore1/FlatClip" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a></div></div>
             </div>
           </article>
-          <article class="paper paper-text">
+          <article class="paper paper-text" data-first="0" data-kind="conference">
             <div class="paper-body">
               <h3><a href="https://arxiv.org/abs/2604.12683" target="_blank" rel="noopener">Brain-DiT: A Universal Multi-state fMRI Foundation Model with Metadata-Conditioned Pretraining</a></h3>
               <p class="authors">J. Xia, <strong>Wenhao Ye</strong>, X. Pan, X. Shen, M. Wang<sup>†</sup>, Q. Liu<sup>†</sup></p>
-              <div class="paper-details"><span class="venue">MICCAI 2026</span><span class="author-position">Second author</span><span class="award">Best Paper &amp; Young Scientist Award shortlist · Top 0.5%</span><div class="paper-links"><a class="citation-link" data-paper="brain-dit" href="https://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;oe=ASCII&amp;cites=18188580104269528791" target="_blank" rel="noopener" title="Google Scholar citation count"><span aria-hidden="true">↗</span> Cited by <span class="citation-count">14</span></a><a href="https://arxiv.org/abs/2604.12683" target="_blank" rel="noopener">Paper <span aria-hidden="true">↗</span></a><a href="https://github.com/REDMAO4869/Brain-DiT" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a></div></div>
+              <div class="paper-details"><span class="venue">MICCAI 2026</span><span class="author-position">Second author</span><span class="award"><i class="gold-pip" aria-hidden="true"></i>Best Paper &amp; Young Scientist Award shortlist · Top 0.5%</span><div class="paper-links"><a class="citation-link" data-paper="brain-dit" href="https://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;oe=ASCII&amp;cites=18188580104269528791" target="_blank" rel="noopener" title="Google Scholar citation count"><span aria-hidden="true">↗</span> Cited by <span class="citation-count">13</span></a><a class="action-link action-link--primary" href="https://arxiv.org/abs/2604.12683" target="_blank" rel="noopener">Paper <span aria-hidden="true">↗</span></a><a class="action-link" href="https://github.com/REDMAO4869/Brain-DiT" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a></div></div>
             </div>
           </article>
-          <article class="paper paper-text">
+          <article class="paper paper-text" data-first="0" data-kind="preprint">
             <div class="paper-body">
               <h3><a href="https://arxiv.org/abs/2609.10518" target="_blank" rel="noopener">BrainTaskonomy: Learning How to Pretrain and What to Transfer in fMRI Foundation Models</a></h3>
               <p class="authors">J. Xia, <strong>Wenhao Ye</strong>, J. Zhang, J. Zuo, M. Wang<sup>†</sup>, Q. Liu<sup>†</sup></p>
-              <div class="paper-details"><span class="venue neutral">Preprint · 2026</span><span class="author-position">Second author</span><div class="paper-links"><a class="citation-link" data-paper="braintaskonomy" href="https://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;oe=ASCII&amp;cites=17710821284854602928" target="_blank" rel="noopener" title="Google Scholar citation count"><span aria-hidden="true">↗</span> Cited by <span class="citation-count">1</span></a><a href="https://arxiv.org/abs/2609.10518" target="_blank" rel="noopener">Paper <span aria-hidden="true">↗</span></a></div></div>
+              <div class="paper-details"><span class="venue neutral">Preprint · 2026</span><span class="author-position">Second author</span><div class="paper-links"><a class="citation-link" data-paper="braintaskonomy" href="https://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;oe=ASCII&amp;cites=17710821284854602928" target="_blank" rel="noopener" title="Google Scholar citation count"><span aria-hidden="true">↗</span> Cited by <span class="citation-count">1</span></a><a class="action-link action-link--primary" href="https://arxiv.org/abs/2609.10518" target="_blank" rel="noopener">Paper <span aria-hidden="true">↗</span></a></div></div>
             </div>
           </article>
-          <article class="paper paper-text">
+          <article class="paper paper-text" data-first="0" data-kind="preprint">
             <div class="paper-body">
               <h3><a href="https://arxiv.org/abs/2512.21881" target="_blank" rel="noopener">SLIM-Brain: A Data- and Training-Efficient Foundation Model for fMRI Data Analysis</a></h3>
               <p class="authors">M. Wang*, J. Xia*, <strong>Wenhao Ye</strong>, E. Liu, K. Peng, J. Feng, Q. Liu<sup>†</sup>, H. Wen<sup>†</sup></p>
-              <div class="paper-details"><span class="venue neutral">Preprint · 2025</span><span class="author-position">Second author</span><div class="paper-links"><a class="citation-link" data-paper="slim-brain" href="https://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;oe=ASCII&amp;cites=12337790209663387533" target="_blank" rel="noopener" title="Google Scholar citation count"><span aria-hidden="true">↗</span> Cited by <span class="citation-count">16</span></a><a href="https://arxiv.org/abs/2512.21881" target="_blank" rel="noopener">Paper <span aria-hidden="true">↗</span></a><a href="https://github.com/OneMore1/SLIM-Brain2026" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a></div></div>
+              <div class="paper-details"><span class="venue neutral">Preprint · 2025</span><span class="author-position">Second author</span><div class="paper-links"><a class="citation-link" data-paper="slim-brain" href="https://scholar.google.com/scholar?oi=bibs&amp;hl=en&amp;oe=ASCII&amp;cites=12337790209663387533" target="_blank" rel="noopener" title="Google Scholar citation count"><span aria-hidden="true">↗</span> Cited by <span class="citation-count">15</span></a><a class="action-link action-link--primary" href="https://arxiv.org/abs/2512.21881" target="_blank" rel="noopener">Paper <span aria-hidden="true">↗</span></a><a class="action-link" href="https://github.com/OneMore1/SLIM-Brain2026" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a></div></div>
             </div>
           </article>
-        </div>
-      </section>
 
-      <section id="experience" class="section experience">
-        <div class="section-heading"><h2>Education &amp; experience</h2></div>
-        <div class="timeline">
+      </div>
+    </section>
+
+    <section id="experience" class="section l1-sec">
+      <div class="section-heading"><h2>Education &amp; experience</h2></div>
+      <div class="l1-timeline">
+        
           <article class="timeline-item">
             <div class="timeline-date">2025 — Present</div>
             <div class="institution">
-              <span class="institution-logo" aria-hidden="true"><img src="assets/sustech-logo.png" alt="" width="190" height="189" loading="lazy" decoding="async"></span>
+              <span class="institution-logo" aria-hidden="true"><span class="logo-crop"><img src="assets/sustech-logo.png" alt="" width="190" height="189" decoding="async"></span></span>
               <div class="institution-details"><h3>Southern University of Science and Technology</h3><p>Visiting Research Student · NCC Lab</p><p class="muted">Advisor: Prof. Quanying Liu · Since July 2025</p></div>
             </div>
           </article>
           <article class="timeline-item">
             <div class="timeline-date">2023 — 2027</div>
             <div class="institution">
-              <span class="institution-logo institution-logo--szu" aria-hidden="true"><img src="assets/szu-identity.png" alt="" width="900" height="620" loading="lazy" decoding="async"></span>
+              <span class="institution-logo institution-logo--szu" aria-hidden="true"><span class="logo-crop"><img src="assets/szu-identity.png" alt="" width="900" height="620" decoding="async"></span></span>
               <div class="institution-details"><h3>Shenzhen University</h3><p>B.Eng. in Biomedical Engineering</p><p class="muted">Advisor: Prof. Baiying Lei · Expected June 2027</p></div>
             </div>
           </article>
           <article class="timeline-item">
             <div class="timeline-date">Jan 2024</div>
             <div class="institution">
-              <a class="institution-logo" href="https://commons.wikimedia.org/wiki/File:Coat_of_Arms_of_the_University_of_Cambridge.svg" target="_blank" rel="noopener" aria-label="University of Cambridge coat of arms — image source and credits" title="Coat of arms: Massive hair and Wikimedia Commons contributors · CC BY-SA 3.0"><img src="assets/cambridge-coat-of-arms.svg" alt="" width="2000" height="2339" loading="lazy" decoding="async"></a>
+              <a class="institution-logo" href="https://commons.wikimedia.org/wiki/File:Coat_of_Arms_of_the_University_of_Cambridge.svg" target="_blank" rel="noopener" aria-label="University of Cambridge coat of arms — image source and credits" title="Coat of arms: Massive hair and Wikimedia Commons contributors · CC BY-SA 3.0"><span class="logo-crop"><img src="assets/cambridge-coat-of-arms.svg" alt="" width="2000" height="2339" decoding="async"></span></a>
               <div class="institution-details"><h3>University of Cambridge</h3><p>Winter School</p></div>
             </div>
           </article>
-        </div>
-      </section>
 
-      <footer><p>Wenhao Ye <span>·</span> Last updated November 2026</p><a href="#about">Back to top <span aria-hidden="true">↑</span></a></footer>
-    </main>
+      </div>
+    </section>
+  </main>
+
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>Wenhao Ye <span>·</span> Last updated November 2026</p>
+      <div class="footer-right">
+        <button id="motion-toggle" class="motion-toggle" type="button" aria-controls="ambient-network" aria-pressed="false" hidden><span class="motion-dot" aria-hidden="true"></span><span class="motion-label">Pause motion</span></button>
+        <a href="#about">Back to top <span aria-hidden="true">↑</span></a>
+      </div>
+    </div>
+  </footer>
+
+
+  <div id="figure-lightbox" class="lb-backdrop" hidden role="dialog" aria-modal="true" aria-label="Figure preview">
+    <div class="lb-dialog">
+      <div class="lb-head">
+        <p class="lb-title"></p>
+        <div class="lb-actions">
+          <a class="lb-link" href="#" target="_blank" rel="noopener">Open arXiv ↗</a>
+          <button type="button" class="lb-close" aria-label="Close figure preview">×</button>
+        </div>
+      </div>
+      <div class="lb-stage"><img class="lb-img" src="" alt=""></div>
+    </div>
   </div>
-  <button id="motion-toggle" class="motion-toggle" type="button" aria-controls="ambient-network" aria-pressed="false" hidden>Pause animation</button>
+
 </body>
 </html>

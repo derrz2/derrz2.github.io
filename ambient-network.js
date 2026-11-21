@@ -5,10 +5,9 @@
   if (!context || !toggle) return;
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  // Match the reference's free-moving particles and short-range mouse attraction.
-  const pointCount = 99;
-  const neighborRangeSquared = 6000;
-  const mouseRangeSquared = 20000;
+  const pointCount = 66;
+  const neighborRangeSquared = 7400;
+  const mouseRangeSquared = 19000;
   const pointer = { x: 0, y: 0, active: false };
   const referenceFrame = 1000 / 60;
   let width = 0;
@@ -18,7 +17,6 @@
   let previousTime = null;
   let paused = false;
 
-  // Remember only an explicit pause; the OS motion preference always takes priority.
   try { paused = localStorage.getItem('wenhao-background-paused') === 'true'; } catch {}
 
   function resize() {
@@ -38,8 +36,9 @@
       points.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: Math.random() * 2 - 1,
-        vy: Math.random() * 2 - 1,
+        vx: Math.random() * 1.1 - 0.55,
+        vy: Math.random() * 1.1 - 0.55,
+        warm: points.length % 7 === 0,
       });
     }
     pointer.active = false;
@@ -54,8 +53,8 @@
   function drawLink(a, b, gapSquared, rangeSquared) {
     if (gapSquared >= rangeSquared) return;
     const strength = 1 - gapSquared / rangeSquared;
-    context.lineWidth = strength / 2;
-    context.strokeStyle = `rgba(0, 0, 0, ${Math.min(1, strength + 0.2)})`;
+    context.lineWidth = Math.max(0.45, strength * 0.85);
+    context.strokeStyle = `rgba(145, 182, 226, ${Math.min(0.42, strength * 0.26 + 0.05)})`;
     context.beginPath();
     context.moveTo(a.x, a.y);
     context.lineTo(b.x, b.y);
@@ -67,7 +66,6 @@
     const steps = previousTime === null ? 1 : Math.min((time - previousTime) / referenceFrame, 3);
     previousTime = time;
     context.clearRect(0, 0, width, height);
-    context.fillStyle = '#000';
 
     for (let i = 0; i < points.length; i++) {
       const point = points[i];
@@ -75,19 +73,20 @@
       point.y += point.vy * steps;
       if (point.x < 0 || point.x > width) point.vx *= -1;
       if (point.y < 0 || point.y > height) point.vy *= -1;
-      context.fillRect(point.x - 0.5, point.y - 0.5, 1, 1);
 
-      // Only nearby real particles connect; there are no added orbiting satellites.
+      context.fillStyle = point.warm ? 'rgba(242, 198, 76, 0.56)' : 'rgba(145, 182, 226, 0.42)';
+      context.beginPath();
+      context.arc(point.x, point.y, point.warm ? 1.8 : 1.35, 0, Math.PI * 2);
+      context.fill();
+
       for (let j = i + 1; j < points.length; j++) {
         drawLink(point, points[j], distanceSquared(point, points[j]), neighborRangeSquared);
       }
       if (pointer.active) {
         const gapSquared = distanceSquared(point, pointer);
         if (gapSquared < mouseRangeSquared) {
-          // Pull in the outer part of the mouse radius, leaving the center free to drift.
-          // At 60 Hz this is the reference's 3% attraction per frame.
           if (gapSquared >= mouseRangeSquared / 2) {
-            const attraction = 1 - Math.pow(0.97, steps);
+            const attraction = 1 - Math.pow(0.975, steps);
             point.x += (pointer.x - point.x) * attraction;
             point.y += (pointer.y - point.y) * attraction;
           }
@@ -105,7 +104,10 @@
     canvas.hidden = disabled;
     toggle.hidden = reducedMotion.matches;
     toggle.setAttribute('aria-pressed', String(paused));
-    toggle.textContent = paused ? 'Resume animation' : 'Pause animation';
+    const label = toggle.querySelector('.motion-label');
+    const txt = paused ? 'Resume motion' : 'Pause motion';
+    if (label) label.textContent = txt;
+    else toggle.textContent = txt;
     if (!disabled && !document.hidden) frame = window.requestAnimationFrame(animate);
   }
 
