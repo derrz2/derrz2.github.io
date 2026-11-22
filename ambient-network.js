@@ -5,9 +5,10 @@
   if (!context || !toggle) return;
 
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const pointCount = 66;
-  const neighborRangeSquared = 7400;
-  const mouseRangeSquared = 19000;
+  // Restore original derrz2.github.io canvas-nest density and responsive mouse gathering.
+  const pointCount = 99;
+  const neighborRangeSquared = 6400;
+  const mouseRangeSquared = 22500;
   const pointer = { x: 0, y: 0, active: false };
   const referenceFrame = 1000 / 60;
   let width = 0;
@@ -36,9 +37,9 @@
       points.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: Math.random() * 1.1 - 0.55,
-        vy: Math.random() * 1.1 - 0.55,
-        warm: points.length % 7 === 0,
+        vx: Math.random() * 1.8 - 0.9,
+        vy: Math.random() * 1.8 - 0.9,
+        warm: points.length % 8 === 0,
       });
     }
     pointer.active = false;
@@ -50,11 +51,16 @@
     return dx * dx + dy * dy;
   }
 
-  function drawLink(a, b, gapSquared, rangeSquared) {
+  function drawLink(a, b, gapSquared, rangeSquared, isCursor) {
     if (gapSquared >= rangeSquared) return;
     const strength = 1 - gapSquared / rangeSquared;
-    context.lineWidth = Math.max(0.45, strength * 0.85);
-    context.strokeStyle = `rgba(145, 182, 226, ${Math.min(0.42, strength * 0.26 + 0.05)})`;
+    if (isCursor) {
+      context.lineWidth = Math.max(0.65, strength * 1.25);
+      context.strokeStyle = `rgba(52, 104, 166, ${Math.min(0.85, strength * 0.72 + 0.18)})`;
+    } else {
+      context.lineWidth = Math.max(0.5, strength * 0.95);
+      context.strokeStyle = `rgba(92, 138, 196, ${Math.min(0.65, strength * 0.52 + 0.12)})`;
+    }
     context.beginPath();
     context.moveTo(a.x, a.y);
     context.lineTo(b.x, b.y);
@@ -74,23 +80,25 @@
       if (point.x < 0 || point.x > width) point.vx *= -1;
       if (point.y < 0 || point.y > height) point.vy *= -1;
 
-      context.fillStyle = point.warm ? 'rgba(242, 198, 76, 0.56)' : 'rgba(145, 182, 226, 0.42)';
+      context.fillStyle = point.warm
+        ? 'rgba(235, 182, 46, 0.85)'
+        : 'rgba(72, 122, 182, 0.72)';
       context.beginPath();
-      context.arc(point.x, point.y, point.warm ? 1.8 : 1.35, 0, Math.PI * 2);
+      context.arc(point.x, point.y, point.warm ? 2.0 : 1.5, 0, Math.PI * 2);
       context.fill();
 
       for (let j = i + 1; j < points.length; j++) {
-        drawLink(point, points[j], distanceSquared(point, points[j]), neighborRangeSquared);
+        drawLink(point, points[j], distanceSquared(point, points[j]), neighborRangeSquared, false);
       }
       if (pointer.active) {
         const gapSquared = distanceSquared(point, pointer);
         if (gapSquared < mouseRangeSquared) {
           if (gapSquared >= mouseRangeSquared / 2) {
-            const attraction = 1 - Math.pow(0.975, steps);
+            const attraction = 1 - Math.pow(0.968, steps);
             point.x += (pointer.x - point.x) * attraction;
             point.y += (pointer.y - point.y) * attraction;
           }
-          drawLink(point, pointer, gapSquared, mouseRangeSquared);
+          drawLink(point, pointer, gapSquared, mouseRangeSquared, true);
         }
       }
     }
@@ -112,7 +120,7 @@
   }
 
   window.addEventListener('pointermove', event => {
-    if (event.pointerType !== 'mouse' || paused || reducedMotion.matches) return;
+    if (event.pointerType === 'touch' || paused || reducedMotion.matches) return;
     pointer.x = event.clientX;
     pointer.y = event.clientY;
     pointer.active = true;

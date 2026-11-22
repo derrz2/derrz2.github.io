@@ -39,7 +39,7 @@ sup{font-size:.7em}
 
 .skip-link{position:fixed;top:-70px;left:16px;padding:10px 18px;background:var(--ink-strong);color:#fff;border-radius:8px;z-index:100}
 .skip-link:focus{top:12px}
-.ambient-network{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;opacity:.62}
+.ambient-network{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;opacity:.78}
 
 /* Header */
 .site-header{
@@ -264,18 +264,18 @@ h2{font-size:1.75rem;line-height:1.25;letter-spacing:-.02em;font-weight:700;colo
   display:grid;grid-template-columns:238px minmax(0,1fr);gap:28px;
   padding:24px 12px;margin:0 -12px;border-radius:12px;
   border-bottom:1px solid var(--line);align-items:center;
-  background:rgba(255,255,255,.78);transition:background-color .16s ease;
+  background:transparent;transition:background-color .16s ease;
 }
 .l1-papers .paper--featured:hover{background:rgba(243,248,254,.65)}
 .l1-papers .paper-text{
   padding:17px 12px;margin:0 -12px;border-radius:10px;
   border-bottom:1px solid var(--line);
-  background:rgba(255,255,255,.78);transition:background-color .16s ease;
+  background:transparent;transition:background-color .16s ease;
 }
 .l1-papers .paper-text:hover{background:rgba(243,248,254,.55)}
 
 .l1-timeline{border-top:1px solid var(--line)}
-.l1-timeline .timeline-item{display:grid;grid-template-columns:152px minmax(0,1fr);gap:22px;padding:20px 0;border-bottom:1px solid var(--line);align-items:start;background:rgba(255,255,255,.78)}
+.l1-timeline .timeline-item{display:grid;grid-template-columns:152px minmax(0,1fr);gap:22px;padding:20px 0;border-bottom:1px solid var(--line);align-items:start;background:transparent}
 
 @media(max-width:780px){
   .l1-wrap{padding:28px 16px 0}
