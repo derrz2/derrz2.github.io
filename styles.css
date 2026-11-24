@@ -81,6 +81,7 @@ sup{font-size:.7em}
 /* Eyebrow & Micro Gold Dot */
 .eyebrow{display:inline-flex;align-items:center;gap:8px;color:#2b5a8e;font-size:.73rem;font-weight:700;letter-spacing:.12em;margin-bottom:10px}
 .gold-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 2px rgba(255,213,106,.34);flex:none;vertical-align:1px}
+.sky-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--sky);box-shadow:0 0 0 2px rgba(167,197,235,.32);flex:none;vertical-align:1px}
 .gold-pip{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gold);flex:none}
 
 /* Bio links */
@@ -89,19 +90,23 @@ sup{font-size:.7em}
 .bio-prose a{border-bottom:1.5px solid rgba(167,197,235,.85);padding-bottom:1px;font-weight:500}
 .bio-prose a:hover{text-decoration:none;background:rgba(167,197,235,.2);border-bottom-color:var(--link)}
 
-/* Opportunity Note: Pure white card, sky border, gold dot + thin underline only */
+/* Opportunity Note: Two equal-weight parallel items + copy email action */
 .opportunity-note{
   padding:18px 22px;
   background:#ffffff;
   border:1px solid var(--sky-border);
   border-left:3.5px solid var(--sky);
   border-radius:12px;
-  display:flex;align-items:center;justify-content:space-between;gap:18px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
   box-shadow:0 3px 14px rgba(34,83,138,.035);
 }
-.opportunity-title{margin:0 0 5px;color:var(--ink-strong);font-size:1rem;font-weight:700;line-height:1.45;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.opportunity-list{list-style:none;margin:0;padding:0;display:grid;gap:11px;flex:1;min-width:0}
+.opportunity-item{display:flex;align-items:flex-start;gap:10px}
+.opportunity-item+.opportunity-item{padding-top:11px;border-top:1px solid #eef4fb}
+.opportunity-item .gold-dot,.opportunity-item .sky-dot{margin-top:8px}
+.opportunity-item p{margin:0;color:#45586d;font-size:.92rem;line-height:1.62}
+.opportunity-item strong{color:var(--ink-strong);font-weight:650}
 .fall-accent{color:var(--ink-strong);border-bottom:2.5px solid var(--gold);padding-bottom:1px;white-space:nowrap}
-.opportunity-copy>p+p{color:#4d5f73;font-size:.88rem;line-height:1.65}
 .opportunity-note a{font-weight:600;color:var(--link);text-decoration:underline;text-decoration-color:var(--sky);text-underline-offset:3px;overflow-wrap:anywhere}
 .copy-email-btn{
   display:inline-flex;align-items:center;gap:6px;flex:none;
